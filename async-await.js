@@ -1,10 +1,12 @@
 // async-await
 
 const random = () => {
-    return Promise.resolve(Math.random())
-}
+  return Promise.resolve(Math.random());
+};
 
-// Bad Promise Code
+/**
+ * Bad Promise Code
+ */
 // const sumRandomAsyncNumbers = () => {
 //     let first;
 //     let second;
@@ -25,15 +27,15 @@ const random = () => {
 //         })
 // }
 
-
+/**
+ * Good Promise Code
+ */
 const sumRandomAsyncNumbers = async () => {
+  const first = await random();
+  const second = await random();
+  const third = await random();
 
-    const first = await random();
-    const second = await random();
-    const third = await random();
-
-    console.log(`Result ${first} + ${second} + ${third}`)
-
-}
+  console.log(`Result ${first} + ${second} + ${third}`);
+};
 
 sumRandomAsyncNumbers();
